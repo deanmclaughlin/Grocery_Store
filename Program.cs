@@ -177,7 +177,7 @@ static long ValidLongInput(bool validateLength, int min, int max, string propert
     if (!Int64.TryParse(input, out long option))
     {
         Console.WriteLine($"{propertyName} should be a number!");
-        answer = ValidIntInput(validateLength, min, max, propertyName);
+        answer = ValidLongInput(validateLength, min, max, propertyName);
     }
     else
     {
@@ -186,8 +186,8 @@ static long ValidLongInput(bool validateLength, int min, int max, string propert
             var optionLength = option.ToString().Length;
             if (optionLength < min || optionLength > max)
             {
-                Console.WriteLine($"{propertyName} must not be less than {min} and greater than {max}");
-                answer = ValidIntInput(validateLength, min, max, propertyName);
+                Console.WriteLine($"{propertyName} must not be less than {min} or greater than {max} digits");
+                answer = ValidLongInput(validateLength, min, max, propertyName);
             }
             else
             {
